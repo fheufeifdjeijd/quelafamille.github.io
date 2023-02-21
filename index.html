@@ -1,119 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Appel Zadarma</title>
-    <style>
-        body {
-            color: black;
-            font-family: Arial, sans-serif;
-            margin: 0; /* Ajouter une marge de zéro pour le corps */
-            height: 100%; /* Définir une hauteur de 100% pour le corps */
-        }
-
-        .container {
-            display: flex;
-            justify-content: center; /* Aligner le contenu horizontalement */
-            align-items: center; /* Aligner le contenu verticalement */
-            height: 100%; /* Définir une hauteur de 100% pour le conteneur */
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid gray;
-            border-radius: 5px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-            position: relative;
-            /* top: 50%; Supprimez cette ligne */
-            /* transform: translateY(-50%); Supprimez cette ligne */
-        }
-
-        input {
-            margin: 10px;
-            padding: 10px;
-            border: 2px solid gray;
-            border-radius: 5px;
-        }
-
-        button {
-            margin: 10px;
-            padding: 10px;
-            border: 2px solid gray;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #3e8e41;
-            transform: scale(1.05);
-        }
-
-        .error-message {
-            color: red;
-            margin: 10px;
-            font-weight: bold;
-        }
-    </style>
+	<title>Passer un appel avec Zoiper5</title>
 </head>
 <body>
-    <div class="container">
-        <form>
-            <label for="number">Numéro:</label>
-            <input type="text" id="number" name="number" placeholder="Saisir le numéro à appeler">
-
-            <button type="button" id="call-button">Appeler</button>
-
-            <p class="error-message" id="error-message"></p>
-        </form>
-    </div>
-
-    <script>
-        const callButton = document.getElementById('call-button');
-        const errorMessage = document.getElementById('error-message');
-
-        callButton.addEventListener('click', () => {
-            const number = document.getElementById('number').value;
-
-            if (number === '') {
-                errorMessage.innerText = 'Veuillez saisir un numéro';
-                return;
-            }
-
-            // Initialisez la session Zadarma
-            const pbx = new Zadarma.PBX({
-                domain: 'sip.zadarma.com',
-                login: 'votre_identifiant',
-                password: 'votre_mot_de_passe'
-            });
-
-       const domainInput = document.getElementById('domain');
-const numberInput = document.getElementById('number');
-const passwordInput = document.getElementById('password');
-const submitButton = document.getElementById('submit-button');
-
-submitButton.addEventListener('click', () => {
-  const domain = domainInput.value;
-  const number = numberInput.value;
-  const password = passwordInput.value;
-
-  if (domain === 'sip.zadarma.com' && number === '327668' && password === 'kti358NmuT') {
-    window.location.href = 'appel.html';
-  } else {
-    errorMessage.innerText = 'Identifiants incorrects';
-  }
-});
-    
-
-
-
-
-
- // Passez l'appel
+	<h1>Passer un appel avec Zoiper5</h1>
+	<form>
+		<label for="number">Numéro de téléphone :</label>
+		<input type="text" id="number" name="number"><br><br>
+		<button type="button" onclick="makeCall()">Appeler</button>
+	</form>
+	<script src="https://cdn.zoiper.com/zoiper5/2.17.4/zoiper5.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
