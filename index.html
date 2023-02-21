@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Passer un appel avec Zoiper5</title>
+    <title>Exemple d'appel SIP avec Zoiper5</title>
 </head>
 <body>
-	<h1>Passer un appel avec Zoiper5</h1>
-	<form>
-		<label for="number">Numéro de téléphone :</label>
-		<input type="text" id="number" name="number"><br><br>
-		<button type="button" onclick="makeCall()">Appeler</button>
-	</form>
-	<script src="https://cdn.zoiper.com/zoiper5/2.17.4/zoiper5.js"></script>
-	<script src="app.js"></script>
+    <div id="app">
+        <h1>Exemple d'appel SIP avec Zoiper5</h1>
+        <div>
+            <label>Numéro de téléphone à appeler :</label>
+            <input type="text" id="phoneNumber">
+            <button type="button" onclick="makeCall()">Appeler</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.zoiper.com/zoiper5/2.17.6/zoiper5.js"></script>
+    <script>
+        function makeCall() {
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            zoiper5.phone.call(phoneNumber);
+        }
+
+        zoiper5.init({
+            sip: {
+                uri: 'sip:326263@sip.zadarma.com',
+                password: 'reyF2Ju31t',
+                wsServers: ['wss://sip.zadarma.com:8089/ws']
+            },
+            log: {
+                level: 'debug'
+            }
+        });
+    </script>
 </body>
 </html>
