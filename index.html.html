@@ -94,4 +94,26 @@
                 password: 'votre_mot_de_passe'
             });
 
-            // Passez l'appel
+       const domainInput = document.getElementById('domain');
+const numberInput = document.getElementById('number');
+const passwordInput = document.getElementById('password');
+const submitButton = document.getElementById('submit-button');
+
+submitButton.addEventListener('click', () => {
+  const domain = domainInput.value;
+  const number = numberInput.value;
+  const password = passwordInput.value;
+
+  if (domain === 'sip.zadarma.com' && number === '327668' && password === 'kti358NmuT') {
+    window.location.href = 'appel.html';
+  } else {
+    errorMessage.innerText = 'Identifiants incorrects';
+  }
+});
+    
+
+
+
+
+
+ // Passez l'appel
